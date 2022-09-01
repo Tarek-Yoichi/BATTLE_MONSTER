@@ -5,14 +5,6 @@ export default class extends Controller {
   static values = { deckId: Number }
   static targets = ["round", "rounds"]
 
-  sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
-
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "DeckChannel", id: this.deckIdValue },
@@ -25,6 +17,8 @@ export default class extends Controller {
           const monster2 = document.querySelector('#arena-deck-2-monster')
           const arenaAttack1 = document.querySelector('#arena-attack-1')
           const arenaAttack2 = document.querySelector('#arena-attack-2')
+          arenaAttack1.style.visibility="visible";
+          arenaAttack2.style.visibility="visible";
 
           if (json.attack == 1) {
 
@@ -37,6 +31,8 @@ export default class extends Controller {
             });
 
             arenaAttack1.addEventListener("animationend", function(){
+              arenaAttack1.style.visibility="hidden";
+              arenaAttack2.style.visibility="hidden";
               monster2.classList.add('hurt')
             });
 
@@ -47,11 +43,19 @@ export default class extends Controller {
             document.querySelector('#progress2').addEventListener("transitionend", function(){
               roundControl.classList.remove('controls-off')
               arenaAttack1.classList.remove('attack-1')
+              arenaAttack2.classList.remove('attack-2')
               monster2.classList.remove('hurt')
               monster1.classList.remove('attack')
-              arenaAttack2.classList.remove('attack-2')
               monster1.classList.remove('hurt')
               monster2.classList.remove('attack')
+              if (json.deck2_HP <= 0 ) {
+                monster2.classList.add('die')
+                document.querySelector('.die').addEventListener("animationend", function(){
+                  arenaAttack2.classList.remove('attack-2')
+                  arenaAttack1.classList.remove('attack-1')
+                  monster2.classList.add('ground')
+                })
+              }
             });
 
           } else if (json.attack == 2) {
@@ -64,6 +68,8 @@ export default class extends Controller {
             });
 
             arenaAttack2.addEventListener("animationend", function(){
+              arenaAttack2.style.visibility="hidden";
+              arenaAttack1.style.visibility="hidden";
               monster1.classList.add('hurt')
             });
 
@@ -74,11 +80,19 @@ export default class extends Controller {
             document.querySelector('#progress1').addEventListener("transitionend", function(){
               roundControl.classList.remove('controls-off')
               arenaAttack2.classList.remove('attack-2')
+              arenaAttack1.classList.remove('attack-1')
               monster1.classList.remove('hurt')
               monster2.classList.remove('attack')
-              arenaAttack1.classList.remove('attack-1')
               monster2.classList.remove('hurt')
               monster1.classList.remove('attack')
+              if (json.deck1_HP <= 0 ) {
+                monster1.classList.add('die')
+                document.querySelector('.die').addEventListener("animationend", function(){
+                  arenaAttack2.classList.remove('attack-2')
+                  arenaAttack1.classList.remove('attack-1')
+                  monster1.classList.add('ground')
+                })
+              }
             });
 
           }

@@ -13,12 +13,9 @@
   <body>
     <%= render "shared/flashes" %>
     <%= render 'layouts/header' if !current_page?( root_path) %>
-    <%# changement de root vers template home %>
-      <%# <div class="container py-5"> %>
-       <%# #suppression mt-5 %>
-        <%= yield %>
-      <%# </div> %>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'layouts/footer' if !current_page?(root_path) %>
-
   </body>
 </html>

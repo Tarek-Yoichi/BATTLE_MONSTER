@@ -32,12 +32,12 @@ puts "creation du bestiaire"
 specie_one = Specie.create!(name: "golem")
 specie_two = Specie.create!(name: "garou")
 
-attack_one = Attack.create!(damage: 25, name: "griffure sanglante", specie_id: specie_one.id)
-attack_two = Attack.create!(damage: 25, name: "jets de pierres", specie_id: specie_two.id)
+attack_one = Attack.create!(damage: 50, name: "jets de pierres", specie_id: specie_one.id)
+attack_two = Attack.create!(damage: 50, name: "griffure sanglante", specie_id: specie_two.id)
 
 puts "creation des stars du jeu..."
-monster_one = Monster.create!(name: "billy crawford", user_id: player_one.id, specie_id: specie_one.id, xp: 0)
-monster_two =Monster.create!(name: "durdur", user_id: player_two.id, specie_id: specie_two.id, xp: 0)
+monster_one = Monster.create!(name: "Durdur", user_id: player_one.id, specie_id: specie_one.id, xp: 100)
+monster_two = Monster.create!(name: "Croc", user_id: player_two.id, specie_id: specie_two.id, xp: 100)
 
 puts "creation d'une battle + 2 decks"
 battle = Battle.new(pc_win: 500, xp_win: 150, status: "pending", round: 1)
