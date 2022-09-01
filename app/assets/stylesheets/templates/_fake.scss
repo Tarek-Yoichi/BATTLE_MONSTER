@@ -70,3 +70,62 @@ h3 {
   margin: 0 0;
 
 }
+
+
+// chargement //
+
+.center{
+  color: white;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.ring{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  animation: ring 2s linear infinite;
+}
+
+@keyframes ring{
+  0%{
+    transform: rotate(0deg);
+    box-shadow: 1px 5px 2px #499A90;
+  }
+  50%{
+    transform: rotate(180deg);
+    box-shadow: 1px 5px 2px #F7A71E;
+  }
+  100%{
+    transform: rotate(360deg);
+    box-shadow: 1px 5px 2px #499A90;
+  }
+}
+
+.ring::before{
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.center span{
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+  animation: text 3s ease-in-out infinite;
+}
+
+@keyframes text{
+  50%{
+    color:#dea561;
+  }
+}
