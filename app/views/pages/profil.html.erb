@@ -56,3 +56,40 @@
     <div class="gap"></div>
   </div>
 </div>
+
+<main class="interface">
+  <div id="main-header">
+    <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
+    <div id="main-player">
+      <h2>Ilyes</h2>
+      <div class="main-player-menu">
+        <img src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+        <div class="circle-btn"></div>
+        <div class="circle-btn"></div>
+      </div>
+    </div>
+  </div>
+  <div id="main-container" class="monster-block">
+
+    <div id="main-container-items">
+
+      <div id="main-content" class="profil">
+        <h2>#placer un titre ici</h2>
+
+        <p><%= current_user.name %></p>
+        <p><%= current_user.pc %></p>
+        <p><%= Battle.where(winner_id: current_user).count %></p>
+        <p><%= Deck.where(user_id: current_user).count %></p>
+        <p>victoire contre <%= Battle.where(winner_id: current_user) %></p>
+        <p>#placer du contenu ici</p>
+      </div>
+
+      <div id="main-controls">
+        <div class="circle-btn"></div>
+        <div class="large-btn"><h3>bouton large</h3></div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
