@@ -14,8 +14,8 @@ Specie.destroy_all
 Deck.destroy_all
 Battle.destroy_all
 
-puts "creation de personnage..."
-base_url = 'http://onepage.dropagence.fr/game/place'
+puts "creation des joueurs..."
+base_url = 'https://onepage.dropagence.fr/game/bm/img/static'
 
 player1_avatar_url = URI.open("#{base_url}/ilyes.jpg")
 player2_avatar_url = URI.open("#{base_url}/tarek.jpg")
@@ -31,20 +31,39 @@ player_two.save!
 
 puts "creation du bestiaire"
 
-specie_one = Specie.create!(name: "golem")
-specie_two = Specie.create!(name: "garou")
+monster_url = 'https://onepage.dropagence.fr/game/bm/img/static/specie'
+specie_one = Specie.create!(name: "golem", monster_skin: "#{monster_url}/golem.png", monster_head: "#{monster_url}/golem-head.png", info: "info golem")
+specie_two = Specie.create!(name: "garou", monster_skin: "#{monster_url}/garou.png", monster_head: "#{monster_url}/garou-head.png", info: "info garou")
+specie_three = Specie.create!(name: "troll", monster_skin: "#{monster_url}/troll.png", monster_head: "#{monster_url}/troll-head.png", info: "info troll")
 
-attack_one = Attack.create!(damage: 50, name: "jet de pierres", specie_id: specie_one.id)
-attack_two = Attack.create!(damage: 50, name: "griffure sanglante", specie_id: specie_two.id)
+attack_url = 'https://onepage.dropagence.fr/game/bm/img/static/attack'
+
+Attack.create!(damage: 10, success: 100, name: "Kevin", specie_id: specie_one.id, attack_skin: "#{attack_url}/1.png", attack_btn: "#{attack_url}/btn/1.png")
+attack_one = Attack.create!(damage: 20, success: 80, name: "Jet de Pierre", specie_id: specie_one.id, attack_skin: "#{attack_url}/2.png", attack_btn: "#{attack_url}/btn/1.png")
+Attack.create!(damage: 30, success: 60, name: "Pluie de cailloux", specie_id: specie_one.id, attack_skin: "#{attack_url}/3.png", attack_btn: "#{attack_url}/btn/1.png")
+Attack.create!(damage: 40, success: 40, name: "Pierre Feuille Ciseaux", specie_id: specie_one.id, attack_skin: "#{attack_url}/4.png", attack_btn: "#{attack_url}/btn/1.png")
+Attack.create!(damage: 50, success: 20, name: "Ferrero Rocher", specie_id: specie_one.id, attack_skin: "#{attack_url}/5.png", attack_btn: "#{attack_url}/btn/1.png")
+
+Attack.create!(damage: 10, success: 100, name: "Hurlement", specie_id: specie_two.id, attack_skin: "#{attack_url}/6.png", attack_btn: "#{attack_url}/btn/6.png")
+attack_two = Attack.create!(damage: 20, success: 80, name: "Griffure sanglante", specie_id: specie_two.id, attack_skin: "#{attack_url}/7.png", attack_btn: "#{attack_url}/btn/7.png")
+Attack.create!(damage: 30, success: 60, name: "Croc blanc", specie_id: specie_two.id, attack_skin: "#{attack_url}/8.png", attack_btn: "#{attack_url}/btn/8.png")
+Attack.create!(damage: 40, success: 40, name: "Meute enragée", specie_id: specie_two.id, attack_skin: "#{attack_url}/9.png", attack_btn: "#{attack_url}/btn/9.png")
+Attack.create!(damage: 50, success: 20, name: "Powerwolf", specie_id: specie_two.id, attack_skin: "#{attack_url}/10.png", attack_btn: "#{attack_url}/btn/10.png")
+
+Attack.create!(damage: 10, success: 100, name: "Baton Toodur", specie_id: specie_three.id, attack_skin: "#{attack_url}/11.png", attack_btn: "#{attack_url}/btn/11.png")
+Attack.create!(damage: 20, success: 80, name: "Boom Boom", specie_id: specie_three.id, attack_skin: "#{attack_url}/12.png", attack_btn: "#{attack_url}/btn/12.png")
+Attack.create!(damage: 30, success: 60, name: "Lancé de hache", specie_id: specie_three.id, attack_skin: "#{attack_url}/13.png", attack_btn: "#{attack_url}/btn/13.png")
+Attack.create!(damage: 40, success: 40, name: "Hypertroll", specie_id: specie_three.id, attack_skin: "#{attack_url}/14.png", attack_btn: "#{attack_url}/btn/14.png")
+Attack.create!(damage: 50, success: 20, name: "Erreur 500", specie_id: specie_three.id, attack_skin: "#{attack_url}/15.png", attack_btn: "#{attack_url}/btn/15.png")
 
 puts "creation des stars du jeu..."
-monster_one = Monster.create!(name: "Durdur", user_id: player_one.id, specie_id: specie_one.id, xp: 100)
-monster_two =Monster.create!(name: "Toktok", user_id: player_two.id, specie_id: specie_two.id, xp: 100)
+monster_one = Monster.create!(name: "Durdur", user_id: player_one.id, specie_id: specie_one.id)
+monster_two = Monster.create!(name: "Toktok", user_id: player_two.id, specie_id: specie_two.id)
 
 puts "creation d'une battle + 2 decks"
 battle = Battle.new(pc_win: 500, xp_win: 150, status: "pending", round: 1)
-deck1 = Deck.create!(user: player_one, monster: monster_one, attack: attack_one, battle: battle, hp: 100)
-_deck2 = Deck.create!(user: player_two, monster: monster_two, attack: attack_two, battle: battle, hp: 100)
+deck1 = Deck.create!(user: player_one, monster: monster_one, attack: attack_one, battle: battle)
+_deck2 = Deck.create!(user: player_two, monster: monster_two, attack: attack_two, battle: battle)
 battle.current_deck = deck1
 battle.save!
 

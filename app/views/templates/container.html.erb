@@ -15,12 +15,50 @@
     <div id="main-container-items">
 
       <div id="main-content" class="profil">
-        <h2>#placer un titre ici</h2>
-
-        <p><%= current_user.name %></p>
-        <p><%= current_user.pc %></p>
-        <p><%= battle.count %></p>
+        <h1>#placer un titre ici</h1>
         <p>#placer du contenu ici</p>
+        <!-- avatar + txt | + btn -->
+        <div class="monster-row">
+          <div class="monster-row-content">
+            <img class="avatar" src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+            <h3 class="h-red">Le texte</h3>
+          </div>
+          <div class="monster-row-right large-btn">
+            <h3>Le bouton</h3>
+          </div>
+        </div>
+        <!-- avatar + txt | + kit -->
+        <div class="monster-row">
+          <div class="monster-row-content">
+            <img class="avatar" src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+            <h3 class="h-red">Le texte</h3>
+          </div>
+          <div class="monster-row-right">
+            <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/on.png">
+          </div>
+        </div>
+        <!-- txt | + input text -->
+        <div class="monster-row">
+          <div class="monster-row-content">
+            <h3 class="h-red">Choisis une option</h3>
+          </div>
+          <div class="monster-row-right large-btn large-input ">
+            <input type="text" placeholder="type here">
+          </div>
+        </div>
+        <!-- txt | + input select -->
+        <div class="monster-row">
+          <div class="monster-row-content">
+            <h3 class="h-red">Choisis une option</h3>
+          </div>
+          <div class="monster-row-right large-btn large-input large-btn-chevron">
+            <select>
+              <option value="1">Golem</option>
+              <option value="2">Garou</option>
+              <option value="3">Troll</option>
+            </select>
+          </div>
+        </div>
       </div>
 
       <div id="main-controls">

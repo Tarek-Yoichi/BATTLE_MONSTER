@@ -5,11 +5,14 @@ red    -> #DA4D43
 yellow -> #FFBD59
 
 /** Global **/
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Teko', sans-serif;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+h1, h2, h3, h4, h5, h6, input {
+  margin: 0;
+  padding:0;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 
 h1 {font-size: 48px }
@@ -18,24 +21,27 @@ h3 {font-size: 32px }
 h4 {font-size: 24px }
 h5 {font-size: 16px }
 
-p { font-family: sans-serif; color: white }
+.h-red { color:#DA4D43; text-shadow: none; }
+.h-yellow { color:#FFBD59; text-shadow: none; }
+
+p { font-size: 16px; font-family: sans-serif; color: white }
 
 /* Layout main */
 
 main.interface {
-    width: 100vw;
-    height: 100vh;
-    background:  url(https://onepage.dropagence.fr/game/bm/img/bg/bg-side.png), url(https://onepage.dropagence.fr/game/bm/img/bg/bg-main-dark.png);
-    background-size: contain, cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: right bottom, center center;
+  width: 100vw;
+  height: 100vh;
+  background:  url(https://onepage.dropagence.fr/game/bm/img/bg/bg-side.png), url(https://onepage.dropagence.fr/game/bm/img/bg/bg-main-dark.png);
+  background-size: contain, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: right bottom, center center;
 }
 
 #main-header, #main-container {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
 }
 #main-header    {height: 20%;}
 #main-container {height: 75%;}
@@ -46,97 +52,199 @@ main.interface {
 /* Layout header */
 
 #main-logo {
-    max-width:180px;
-    object-fit: contain;
+  max-width:180px;
+  object-fit: contain;
 }
 
 #main-player {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #main-player h2 {
-    padding-right: 30px;
+  padding-right: 30px;
 }
 
 #main-player .main-player-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
 }
 
-#main-player img {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-    border: 5px solid #DA4D43;
+#main-player img,
+.avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: 5px solid #DA4D43;
+  background: #DA4D43;
 }
 
 /* Layout monster-block */
 
 #main-content {
-    height: 64vh;
-    width: 58vw;
-    background: #2A2A2B;
-    border: 15px solid white;
-    border-radius: 50px;
-    padding: 50px;
+  height: 64vh;
+  width: 58vw;
+  background: #2A2A2B;
+  border: 15px solid white;
+  border-radius: 50px;
+  padding: 50px;
+  overflow: scroll;
+}
+
+#main-container-items {
+  position: relative;
 }
 
 #main-controls {
-    padding: 0 50px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: -38px
+  position: absolute;
+  width: 100%;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -38px;
 }
+
+/* Layout monster-row */
+
+.monster-row {
+  height: 70px;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50px;
+  background-color: #FFBD59;
+  margin-bottom: 10px;
+}
+
+.monster-row-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.monster-row .h-red {
+  margin-bottom: -5px;
+  padding-left: 30px
+}
+
+.monster-row-right img {
+  width: 80px;
+  padding-right: 30px;
+}
+
+/* input */
+.monster-row-right input {
+  background: transparent;
+  border: none;
+  border-radius: 50px;
+  margin-bottom: -5px;
+  text-shadow: none;
+  font-size: 32px;
+  padding-left: 50px;
+}
+
+.monster-row-right input::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.monster-row-right input:focus {
+  outline: none;
+}
+
+/* Select */
+.monster-row-right select {
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  appearance:none;
+  color: white;
+  font-family: 'Teko', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 32px;
+  margin-bottom: -5px;
+  padding-left: 27px;
+}
+
+.monster-row-right.large-btn-chevron {
+  background:  url(https://onepage.dropagence.fr/game/bm/img/static/kit/arrow.png), #DA4D43;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: 92% 57%;
+}
+
+.monster-row-right select::-ms-expand { display: none; }
+.monster-row-right.large-btn { width: 300px; }
 
 /* Btn */
 
 .circle-btn {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #DA4D43;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #DA4D43;
+}
+
+.large-btn,
+.big-btn,
+.master-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 50px;
+  text-align: center;
+  background: #DA4D43;
 }
 
 .large-btn { /* h3 */
-    border-radius: 50px;
-    background: #DA4D43;
-    min-width: 200px;
-    padding: 17px 25px 10px;
-    text-align: center;
+  height: 60px;
+  min-width: 200px;
 }
 
 .big-btn { /* h2 */
-    border-radius: 50px;
-    background: #DA4D43;
-    min-width: 250px;
-    padding: 20px 20px 10px;
-    text-align: center;
+  height: 70px;
+  min-width: 250px;
 }
 
 .monster-menu .big-btn {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .master-btn { /* h1 */
-    border-radius: 50px;
-    background: #2A2A2B;
-    min-width: 300px;
-    padding: 20px 20px 10px;
-    text-align: center;
-    border: 7px solid white;
+  height: 90px;
+  min-width: 320px;
+  background: #2A2A2B;
+  border: 7px solid white;
 }
 
 .monster-menu .master-btn {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
-div.large-btn:hover,
-div.big-btn:hover,
-div.master-btn:hover {
-    cursor: pointer;
-    opacity: 0.9;
+.master-btn h1,
+.big-btn h2,
+.large-btn h3 { margin-bottom: -5px; }
+
+.large-btn:hover,
+.big-btn:hover,
+.master-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
