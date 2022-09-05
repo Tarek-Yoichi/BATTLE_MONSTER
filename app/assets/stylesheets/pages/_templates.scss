@@ -94,6 +94,17 @@ main.interface {
   overflow: scroll;
 }
 
+// hide scroll
+#main-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#main-content {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 #main-container-items {
   position: relative;
 }
