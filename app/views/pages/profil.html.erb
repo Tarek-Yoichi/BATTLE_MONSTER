@@ -1,62 +1,3 @@
-<div class="profilcontainer py-5">
-  <div class="containerpage">
-    <div class="gap"></div>
-    <div class="profil-info">
-      <img class="profil-info-avatar" src="https://res.cloudinary.com/didd5gcsw/image/upload/v1/production/zlpglk2ujzucz2tubylcztzcrkcu">
-      <div class="profil-info-content">
-        <h1>Profil de Tarek</h1>
-        <ul>
-          <li><strong>PogCoin : </strong> 999 pc</li>
-          <li><strong>Monstre : </strong>4</li>
-        </ul>
-      </div>
-    </div>
-
-
-    <div class="profil-monsters">
-      <h2>Mes Monstres</h2>
-        <div class="display-cards">
-          <div class="card_container">
-            <div class="card" style='background-image: url("http://onepage.dropagence.fr/game/place/game-background-<%= rand(1..5) %>.png");'>
-              <img src="http://onepage.dropagence.fr/game/place/golem-1-1.png" alt="Golem" width="180px" height="180px">
-              <div class="monster-info">
-                <span class="monster-info-top">Durdur</span>
-                <span class="monster-info-bottom">Lv 2 - 12pc</span>
-              </div>
-            </div>
-          </div>
-          <div class="card_container" >
-            <div class="card" style='background-image: url("http://onepage.dropagence.fr/game/place/game-background-<%= rand(1..5) %>.png");'>
-              <img src="http://onepage.dropagence.fr/game/place/troll-1-1.png" alt="Golem" width="180px" height="180px">
-              <div class="monster-info">
-                <span class="monster-info-top">Kas'tète</span>
-                <span class="monster-info-bottom">Lv 10 - 48pc</span>
-              </div>      </div>
-          </div>
-          <div class="card_container" >
-            <div class="card" style='background-image: url("http://onepage.dropagence.fr/game/place/game-background-<%= rand(1..5) %>.png");'>
-              <img src="http://onepage.dropagence.fr/game/place/garou-1-1.png" alt="Golem" width="180px" height="180px">
-              <div class="monster-info">
-                <span class="monster-info-top">Awou Awou</span>
-                <span class="monster-info-bottom">Lv 21 - 666pc</span>
-              </div>
-            </div>
-          </div>
-                <div class="card_container" >
-            <div class="card" style='background-image: url("http://onepage.dropagence.fr/game/place/game-background-<%= rand(1..5) %>.png");'>
-              <img src="http://onepage.dropagence.fr/game/place/garou-2-1.png" alt="Golem" width="180px" height="180px">
-              <div class="monster-info">
-                <span class="monster-info-top">Clovis 1er</span>
-                <span class="monster-info-bottom">Lv 26 - 698pc</span>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <div class="gap"></div>
-  </div>
-</div>
-
 <main class="interface">
   <div id="main-header">
     <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
@@ -80,7 +21,7 @@
         <p><%= current_user.pc %></p>
         <p><%= Battle.where(winner_id: current_user).count %></p>
         <p><%= Deck.where(user_id: current_user).count %></p>
-        <p>victoire contre <%= Battle.where(winner_id: current_user) %></p>
+        <p>victoire contre <%= User.find(Battle.last.winner_id).name %></p>
         <p>#placer du contenu ici</p>
       </div>
 
