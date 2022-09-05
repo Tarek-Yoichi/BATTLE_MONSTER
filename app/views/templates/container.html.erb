@@ -19,7 +19,8 @@
 
         <p><%= current_user.name %></p>
         <p><%= current_user.pc %></p>
-        <p><%= battle.count %></p>
+        <p><%= Battle.where(winner_id: current_user).count %></p>
+        <p><%=  %></p>
         <p>#placer du contenu ici</p>
       </div>
 
