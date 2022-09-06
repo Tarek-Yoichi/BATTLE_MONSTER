@@ -1,12 +1,7 @@
-<div class="main-container">
-  <div class="main-content">
-    <div class="gap"></div>
-    <h1>Salle d'attente</h1>
-    <img src="http://onepage.dropagence.fr/game/loading.png" width="750" height="400">
-    <h2>Vous allez bientôt rentrer dans l'arène</h2>
-    <p>Vous êtes maintenant prêt à combattre,<br>
-    Accédez à l’arène via le bouton ci-dessous</p>
-    <%= link_to "C'est parti !", "/battles/1", class: 'btn btn-combats'  %>
-    <div class="gap"></div>
-  </div>
+<style>
+  p { color: black }
+</style>
+
+<div data-controller="loading">
+  <%= render :partial => 'load', :locals => { :battle => @battle, :deck1 => @deck1, :deck2 => @deck2 } %>
 </div>

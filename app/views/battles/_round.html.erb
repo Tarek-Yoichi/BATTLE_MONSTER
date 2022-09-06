@@ -1,87 +1,89 @@
-  <div class="round" data-battle-subscription-target="round">
+<div class="round" data-battle-subscription-target="round">
 
-    <div id="round-controls">
+  <div id="round-controls">
 
-      <% if deck1.hp <= 0 %>
+    <% if deck1.hp <= 0 %>
 
-        <div class="go-control">
+      <div class="go-control">
 
-          <% if deck2.user == current_user %>
+        <% if deck2.user == current_user %>
 
-            <div class="victory">
-              <h2>Félicitations !</h2>
-              <p>Vous avez gagné contre <%= deck1.user.name %>, <br>quelle performance !!</p>
-              <%= simple_form_for(battle) do |f| %>
-                <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck2.user_id, :class => 'form-control' } %>
-                <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-              <% end %>
-            </div>
+          <div class="victory">
+            <h2>Félicitations !</h2>
+            <p>Vous avez gagné contre <%= deck1.user.name %>, <br>quelle performance !!</p>
+            <%= simple_form_for(battle) do |f| %>
+              <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck2.user_id, :class => 'form-control' } %>
+              <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
+            <% end %>
+          </div>
 
-          <% else %>
+        <% else %>
 
-            <div class="game-over">
-              <h2>Game Over !</h2>
-              <p>Vous avez perdu contre <%= deck2.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
-              <%= simple_form_for(battle) do |f| %>
-                <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck2.user_id, :class => 'form-control' } %>
-                <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-              <% end %>
-            </div>
+          <div class="game-over">
+            <h2>Game Over !</h2>
+            <p>Vous avez perdu contre <%= deck2.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
+            <%= simple_form_for(battle) do |f| %>
+              <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck2.user_id, :class => 'form-control' } %>
+              <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
+            <% end %>
+          </div>
 
-          <% end %>
+        <% end %>
 
-        </div>
+      </div>
 
-      <% elsif deck2.hp <= 0 %>
+    <% elsif deck2.hp <= 0 %>
 
-        <div class="go-control">
+      <div class="go-control">
 
-          <% if deck1.user == current_user %>
+        <% if deck1.user == current_user %>
 
-            <div class="victory">
-              <h2>Félicitations !</h2>
-              <p>Vous avez gagné contre <%= deck2.user.name %>, <br>quelle performance !!</p>
-              <%= simple_form_for(battle) do |f| %>
-                <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck1.user_id, :class => 'form-control' } %>
-                <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-              <% end %>
-            </div>
+          <div class="victory">
+            <h2>Félicitations !</h2>
+            <p>Vous avez gagné contre <%= deck2.user.name %>, <br>quelle performance !!</p>
+            <%= simple_form_for(battle) do |f| %>
+              <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck1.user_id, :class => 'form-control' } %>
+              <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
+            <% end %>
+          </div>
 
-          <% else %>
+        <% else %>
 
-            <div class="game-over">
-              <h2>Game Over !</h2>
-              <p>Vous avez perdu contre <%= deck1.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
-              <%= simple_form_for(battle) do |f| %>
-                <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck1.user_id, :class => 'form-control' } %>
-                <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-              <% end %>
-            </div>
+          <div class="game-over">
+            <h2>Game Over !</h2>
+            <p>Vous avez perdu contre <%= deck1.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
+            <%= simple_form_for(battle) do |f| %>
+              <%= f.input :winner_id, :as => :hidden, :input_html => { :value => deck1.user_id, :class => 'form-control' } %>
+              <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
+            <% end %>
+          </div>
 
-          <% end %>
+        <% end %>
 
-        </div>
+      </div>
 
-      <% else %>
+    <% else %>
 
-        <div class="nx-control">
-          <% if current_deck.user == current_user %>
-            <div class="current">
-              <h2>Round <%= battle.round %></h2>
-              <h3><%= current_deck.user.name %> à toi de jouer</h3>
-              <p><a class="btn btn-combats" data-action="click->battle-subscription#next" href="<%= battle_next_round_path(battle, next_deck) %>">Lancer <%= current_deck.attack.name %></a></p>
-            </div>
-          <% else %>
-            <div class="next">
-              <h2>Round <%= battle.round %></h2>
-              <h3>Votre adversaire est en train de jouer</h3>
-              <p><a class="btn btn-combats">Aucune action disponible</a></p>
-            </div>
-          <% end %>
-        </div>
+      <div class="nx-control">
+        <% if current_deck.user == current_user %>
+          <div class="current">
+            <h2>Round <%= battle.round %></h2>
+            <h3><%= current_deck.user.name %> à toi de jouer</h3>
+            <a data-action="click->battle-subscription#one" href="<%= battle_next_round_path(battle, next_deck) %>"><div class="avatar"><img src="https://onepage.dropagence.fr/game/bm/img/static/attack/btn/<%= current_deck.attack_one.id %>"/></div></a>
+            <a data-action="click->battle-subscription#two" href="<%= battle_next_round_path(battle, next_deck) %>"><div class="avatar"><img src="https://onepage.dropagence.fr/game/bm/img/static/attack/btn/<%= current_deck.attack_two.id %>"/></div></a>
+            <a data-action="click->battle-subscription#three" href="<%= battle_next_round_path(battle, next_deck) %>"><div class="avatar"><img src="https://onepage.dropagence.fr/game/bm/img/static/attack/btn/<%= current_deck.attack_three.id %>"/></div></a>
+          </div>
+        <% else %>
+          <div class="next">
+            <h2>Round <%= battle.round %></h2>
+            <h3>Votre adversaire est en train de jouer</h3>
+            <p>Aucune action disponible</p>
+          </div>
+        <% end %>
+      </div>
 
-      <% end %>
-
-    </div>
+    <% end %>
 
   </div>
+
+</div>

@@ -1,0 +1,19 @@
+#info-intro {
+  display : flex;
+  justify-content: space-around;
+  align-items:center;
+}
+
+#story {
+  margin-top: 5%;
+  width: 400px;
+  height: 200px;
+  overflow-y: scroll;
+  scrollbar-color: #DA4D43 white;
+  scrollbar-width: thin;
+
+}
+
+#tutoreversed {
+  transform:scaleX(-1);
+}

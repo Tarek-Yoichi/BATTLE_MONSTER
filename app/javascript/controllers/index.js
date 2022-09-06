@@ -9,3 +9,9 @@ application.register("battle-subscription", BattleSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import InsertInListController from "./insert_in_list_controller"
+application.register("insert-in-list", InsertInListController)
+
+import LoadingController from "./loading_controller"
+application.register("loading", LoadingController)

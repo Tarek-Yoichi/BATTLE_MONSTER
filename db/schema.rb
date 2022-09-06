@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_074021) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_143148) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_074021) do
     t.integer "success"
     t.string "attack_btn"
     t.string "attack_skin"
+    t.integer "image_num"
     t.index ["specie_id"], name: "index_attacks_on_specie_id"
   end
 
@@ -71,18 +72,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_074021) do
     t.bigint "user_id", null: false
     t.bigint "monster_id", null: false
     t.bigint "battle_id", null: false
-    t.bigint "attack_id", null: false
     t.integer "hp", default: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "attack1_id"
-    t.bigint "attack2_id"
-    t.bigint "attack3_id"
+    t.bigint "attack_one_id"
+    t.bigint "attack_two_id"
+    t.bigint "attack_three_id"
     t.boolean "empty", default: true
-    t.index ["attack1_id"], name: "index_decks_on_attack1_id"
-    t.index ["attack2_id"], name: "index_decks_on_attack2_id"
-    t.index ["attack3_id"], name: "index_decks_on_attack3_id"
-    t.index ["attack_id"], name: "index_decks_on_attack_id"
     t.index ["battle_id"], name: "index_decks_on_battle_id"
     t.index ["monster_id"], name: "index_decks_on_monster_id"
     t.index ["user_id"], name: "index_decks_on_user_id"
@@ -119,8 +115,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_074021) do
     t.string "name"
     t.string "avatar", default: "https://onepage.dropagence.fr/game/bm/img/static/ugly/brou.png"
     t.integer "pc", default: 0
+    t.datetime "lived"
     t.boolean "onboard", default: false
-    t.boolean "lived", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -131,9 +127,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_05_074021) do
   add_foreign_key "battles", "decks", column: "current_deck_id"
   add_foreign_key "battles", "users", column: "winner_id"
   add_foreign_key "decks", "battles"
-  add_foreign_key "decks", "decks", column: "attack1_id"
-  add_foreign_key "decks", "decks", column: "attack2_id"
-  add_foreign_key "decks", "decks", column: "attack3_id"
   add_foreign_key "decks", "monsters"
   add_foreign_key "decks", "users"
   add_foreign_key "monsters", "species", column: "specie_id"

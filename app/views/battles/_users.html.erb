@@ -1,0 +1,28 @@
+
+
+<% if pending_deck %>
+    <%=  pending_deck.user.name %>
+  <%= link_to "preparation au combat", battle_setup_path(pending_deck.battle) %>
+<% else %>
+  <% users.each do |user| %>
+    <div>
+      <%= user.name %>
+      <% deck = user.decks.joins(:battle).where(battles: {status: "waiting"}).last %>
+      <% if deck %>
+        <% if deck.id == deck.battle.current_deck_id  %>
+          a accepeter votre duel
+          <%= form_with url: battle_accept_path(deck.battle.id) do |f| %>
+            <%= f.submit  %>
+          <% end %>
+        <% else %>
+          en attente
+        <% end %>
+      <% else %>
+          <%= form_with model: Battle.new do |f| %>
+            <%= f.hidden_field :user_id, value: user.id %>
+            <%= f.submit  %>
+          <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

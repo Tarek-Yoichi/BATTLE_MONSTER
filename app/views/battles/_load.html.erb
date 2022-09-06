@@ -1,0 +1,20 @@
+<div class="load" data-loading-target="load">
+  <h1>Salle d'attente pour la bataille #<%= battle.id %></h1>
+  <% if deck1.empty == true %>
+  <p><%= deck1.user.name %> n'est pas encore prêt.</p>
+  <% else %>
+    <p><%= deck1.user.name %> est prêt à jouer.</p>
+  <% end %>
+
+  <% if deck2.empty == true %>
+  <p><%= deck2.user.name %> n'est pas encore prêt.</p>
+  <% else %>
+    <p><%= deck2.user.name %> est prêt à jouer.</p>
+  <% end %>
+
+  <% if deck2.empty == true && deck2.empty == true %>
+  <p>Vous ne pouvez pas encore entrer dans l'arène.</p>
+  <% else %>
+    <p>C'est parti pour dudududuuduelll !!</p>
+  <% end %>
+</div>

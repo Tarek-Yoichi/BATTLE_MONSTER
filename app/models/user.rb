@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :monsters
   has_one_attached :avatar
+  has_many :monsters, dependent: :destroy
+  has_many :decks, dependent: :destroy
   validates :name, presence: true
 end

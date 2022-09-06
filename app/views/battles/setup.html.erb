@@ -1,12 +1,15 @@
-<div class="main-container">
-  <div class="main-content">
-    <div class="gap"></div>
-    <h1>Préparez votre Deck</h1>
-    <img src="http://onepage.dropagence.fr/game/setup.png" width="750" height="400">
-    <h2>Deck Bêta automatique</h2>
-    <p>En version bêta, le Deck est limité.<br>
-    Vous pouvez donc passer en salle d'attente !</p>
-    <%= link_to "Salle d'attente", battle_loading_path(1), class: 'btn btn-combats'  %>
-    <div class="gap"></div>
-  </div>
+<style>
+  p { color: black }
+</style>
+
+<div>
+  <h1>Préparez votre Deck pour la bataille #<%= @battle.id %></h1>
+  <p> choisis ton attaque </p>
 </div>
+
+<%= simple_form_for [@battle, @setup_deck] do |f| %>
+  <%= f.association :attack_one, collection: @setup_specie.attacks, label: "choisis l'attaque 1", include_blank: :empty %>
+  <%= f.association :attack_two, collection: @setup_specie.attacks, label: "choisis l'attaque 2", include_blank: :empty %>
+  <%= f.association :attack_three, collection: @setup_specie.attacks, label: "choisis l'attaque 3", include_blank: :empty %>
+  <%= f.button :submit %>
+<% end %>

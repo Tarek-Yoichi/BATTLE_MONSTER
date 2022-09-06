@@ -1,2 +1,36 @@
-<h1>Pages#start_intro</h1>
-<p>liste variable</p>
+<main class="interface">
+  <div id="main-header">
+    <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
+    <div id="main-player">
+      <h2>Ilyes</h2>
+      <div class="main-player-menu">
+        <img src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+        <div class="circle-btn"></div>
+        <div class="circle-btn"></div>
+      </div>
+    </div>
+  </div>
+  <div id="main-container" class="monster-block">
+
+    <div id="main-container-items">
+
+
+      <div id="main-content" class="main-content-start-intro">
+        <h2>Bienvenue dans Battle Monster</h2>
+        <div id="info-intro">
+          <img id="tutoreversed" src="https://onepage.dropagence.fr/game/bm/img/static/ugly/tuto.png" alt="" width="250px" height="250px">
+          <p id="story">
+            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+          </p>
+        </div>
+      </div>
+
+      <div id="main-controls">
+        <div class="circle-btn"><%= link_to "Retour",  page_main_path %></div>
+        <div class="big-btn">  <h3><%= link_to "Créer mon monstre",  page_start_monster_path %></h3></div>
+      </div>
+
+    </div>
+
+  </div>
+</main>

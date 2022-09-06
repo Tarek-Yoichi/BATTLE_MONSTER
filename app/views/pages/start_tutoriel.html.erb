@@ -1,2 +1,106 @@
-<h1>Pages#tuto</h1>
-<p>liste variable</p>
+<main class="interface">
+  <div id="main-header">
+    <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
+    <div id="main-player">
+      <h2>Ilyes</h2>
+      <div class="main-player-menu">
+        <img src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+        <div class="circle-btn"></div>
+        <div class="circle-btn"></div>
+      </div>
+    </div>
+  </div>
+  <div id="main-container" class="monster-block">
+    <div id="main-container-items">
+      <div id="main-content">
+        <style>
+                img {
+                max-width: 100%;
+                }
+                .slider-container {
+                height: 100%;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                text-align: center;
+                }
+                .menu {
+                position: absolute;
+                left: 0;
+                z-index: 900;
+                width: 100%;
+                bottom: 0;
+                }
+                .menu label {
+                cursor: pointer;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                background: #fff;
+                border-radius: 50px;
+                margin: 0 0.2em 1em;
+                }
+                .menu label:hover,.menu label:focus {
+                background: #1c87c9;
+                }
+                .slide {
+                width: 100%;
+                height: 110%;
+                position: absolute;
+                top: 0;
+                left: 100%;
+                z-index: 10;
+                padding: 7em 1em 0;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                transition: left 0s 0.75s;
+                }
+                [id^="slide"]:checked + .slide {
+                left: 0;
+                z-index: 100;
+                transition: left 0.65s ease-out;
+                }
+                .slide-1 {
+                background-image: url("https://zupimages.net/up/22/36/mgev.png");
+                }
+                .slide-2 {
+                background-image: url("https://zupimages.net/up/22/36/0uvq.png");
+                }
+                .slide-3 {
+                background-image: url("https://zupimages.net/up/22/36/d06f.png");
+                }
+                .slide-4 {
+                background-image: url("https://zupimages.net/up/22/36/3e41.png");
+                }
+
+        </style>
+        <div class="slider-container">
+          <div class="menu">
+            <label for="slide-dot-1"></label>
+            <label for="slide-dot-2"></label>
+            <label for="slide-dot-3"></label>
+            <label for="slide-dot-4"></label>
+          </div>
+            <input checked="" id="slide-dot-1" name="slides" type="radio" />
+          <div class="slide slide-1">
+          </div>
+            <input id="slide-dot-2" name="slides" type="radio" />
+          <div class="slide slide-2">
+          </div>
+            <input id="slide-dot-3" name="slides" type="radio" />
+          <div class="slide slide-3">
+          </div>
+            <input id="slide-dot-4" name="slides" type="radio" />
+          <div class="slide slide-4">
+          </div>
+        </div>
+      </div>
+    <div id="main-controls">
+        <div></div>
+        <div class="large-btn"><%=link_to "Finir le tutoriel", page_main_path %></div>
+    </div>
+    </div>
+  </div>
+
+</main>

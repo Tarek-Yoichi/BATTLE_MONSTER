@@ -1,0 +1,655 @@
+/*** Global ***/
+
+//attacks
+#arena-attack-1, #arena-attack-2, .current-attack {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background-size: contain!important;
+  margin: 0 auto;
+  top: -250px;
+}
+
+.attack-1, .attack-2, .current-attack {
+  top: 70vh;
+  animation: attack-in 1s;
+}
+
+@-webkit-keyframes attack-in {
+  from { top: -250px }
+  to { top: 70vh }
+}
+
+@-moz-keyframes attack-in {
+  from { top: -250px }
+  to { top: 70vh }
+}
+
+@-o-keyframes attack-in {
+  from { top: -250px }
+  to { top: 70vh }
+}
+
+@keyframes attack-in {
+  from { top: -250px }
+  to { top: 70vh }
+}
+
+//monsters
+.golem, .garou, .troll {
+  height: 500px;
+  width: 500px;
+  margin: 0 auto;
+}
+
+/*** Golem ***/
+
+//left
+.golem.left.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/left/golem-idle.png");
+  background-size: cover;
+  -webkit-animation: golem-idle 1s steps(8) infinite;
+  -moz-animation: golem-idle 1s steps(8) infinite;
+  -o-animation: golem-idle 1s steps(8) infinite;
+  animation: golem-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.golem.left.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/left/golem-attack.png");
+  background-size: cover;
+  -webkit-animation: golem-attack 1s steps(8);
+  -moz-animation: golem-attack 1s steps(8);
+  -o-animation: golem-attack 1s steps(8);
+  animation: golem-attack 1s steps(8);
+}
+
+@-webkit-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.hurt, .golem.hurt {
+  animation: clignote .5s linear 3!important;
+}
+@keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-webkit-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-moz-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-o-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+.golem.left.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/left/golem-die.png");
+  background-size: cover;
+  -webkit-animation: golem-die 1s steps(12);
+  -moz-animation: golem-die 1s steps(12);
+  -o-animation: golem-die 1s steps(12);
+  animation: golem-die 1s steps(12);
+}
+
+@-webkit-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.golem.left.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/left/golem-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}
+
+//right
+.golem.right.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/right/golem-idle.png");
+  background-size: cover;
+  -webkit-animation: golem-idle 1s steps(8) infinite;
+  -moz-animation: golem-idle 1s steps(8) infinite;
+  -o-animation: golem-idle 1s steps(8) infinite;
+  animation: golem-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.golem.right.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/right/golem-attack.png");
+  background-size: cover;
+  -webkit-animation: golem-attack 1s steps(8);
+  -moz-animation: golem-attack 1s steps(8);
+  -o-animation: golem-attack 1s steps(8);
+  animation: golem-attack 1s steps(8);
+}
+
+@-webkit-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.hurt, .golem.hurt {
+  animation: clignote .5s linear 3!important;
+}
+@keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-webkit-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-moz-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+@-o-keyframes clignote {
+  50% { opacity: 0; }
+}
+
+.golem.right.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/right/golem-die.png");
+  background-size: cover;
+  -webkit-animation: golem-die 1s steps(12);
+  -moz-animation: golem-die 1s steps(12);
+  -o-animation: golem-die 1s steps(12);
+  animation: golem-die 1s steps(12);
+}
+
+@-webkit-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes golem-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.golem.right.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/golem/right/golem-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}
+
+
+/*** Garou ***/
+
+//left
+.garou.left.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/left/garou-idle.png");
+  background-size: cover;
+  -webkit-animation: garou-idle 1s steps(8) infinite;
+  -moz-animation: garou-idle 1s steps(8) infinite;
+  -o-animation: garou-idle 1s steps(8) infinite;
+  animation: garou-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.left.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/left/garou-attack.png");
+  background-size: cover;
+  -webkit-animation: garou-attack 1s steps(8);
+  -moz-animation: garou-attack 1s steps(8);
+  -o-animation: garou-attack 1s steps(8);
+  animation: garou-attack 1s steps(8);
+}
+
+@-webkit-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.left.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/left/garou-die.png");
+  background-size: cover;
+  -webkit-animation: garou-die 1s steps(12);
+  -moz-animation: garou-die 1s steps(12);
+  -o-animation: garou-die 1s steps(12);
+  animation: garou-die 1s steps(12);
+}
+
+@-webkit-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.garou.left.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/left/garou-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}
+
+
+//right
+.garou.right.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/right/garou-idle.png");
+  background-size: cover;
+  -webkit-animation: garou-idle 1s steps(8) infinite;
+  -moz-animation: garou-idle 1s steps(8) infinite;
+  -o-animation: garou-idle 1s steps(8) infinite;
+  animation: garou-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.right.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/right/garou-attack.png");
+  background-size: cover;
+  -webkit-animation: garou-attack 1s steps(8);
+  -moz-animation: garou-attack 1s steps(8);
+  -o-animation: garou-attack 1s steps(8);
+  animation: garou-attack 1s steps(8);
+}
+
+@-webkit-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.garou.right.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/right/garou-die.png");
+  background-size: cover;
+  -webkit-animation: garou-die 1s steps(12);
+  -moz-animation: garou-die 1s steps(12);
+  -o-animation: garou-die 1s steps(12);
+  animation: garou-die 1s steps(12);
+}
+
+@-webkit-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes garou-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.garou.right.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/garou/right/garou-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}
+
+/*** Troll ***/
+
+//left
+.troll.left.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/left/troll-idle.png");
+  background-size: cover;
+  -webkit-animation: troll-idle 1s steps(8) infinite;
+  -moz-animation: troll-idle 1s steps(8) infinite;
+  -o-animation: troll-idle 1s steps(8) infinite;
+  animation: troll-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.troll.left.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/left/troll-attack.png");
+  background-size: cover;
+  -webkit-animation: troll-attack 1s steps(8);
+  -moz-animation: troll-attack 1s steps(8);
+  -o-animation: troll-attack 1s steps(8);
+  animation: troll-attack 1s steps(8);
+}
+
+@-webkit-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.troll.left.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/left/troll-die.png");
+  background-size: cover;
+  -webkit-animation: troll-die 1s steps(12);
+  -moz-animation: troll-die 1s steps(12);
+  -o-animation: troll-die 1s steps(12);
+  animation: troll-die 1s steps(12);
+}
+
+@-webkit-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.troll.left.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/left/troll-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}
+
+//right
+.troll.right.idle {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/right/troll-idle.png");
+  background-size: cover;
+  -webkit-animation: troll-idle 1s steps(8) infinite;
+  -moz-animation: troll-idle 1s steps(8) infinite;
+  -o-animation: troll-idle 1s steps(8) infinite;
+  animation: troll-idle 1s steps(8) infinite;
+}
+
+@-webkit-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-idle {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.troll.right.attack {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/right/troll-attack.png");
+  background-size: cover;
+  -webkit-animation: troll-attack 1s steps(8);
+  -moz-animation: troll-attack 1s steps(8);
+  -o-animation: troll-attack 1s steps(8);
+  animation: troll-attack 1s steps(8);
+}
+
+@-webkit-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-attack {
+  from { background-position: 0px; }
+  to { background-position: -4000px; } /* <-- width of spritesheet*/
+}
+
+.troll.right.die {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/right/troll-die.png");
+  background-size: cover;
+  -webkit-animation: troll-die 1s steps(12);
+  -moz-animation: troll-die 1s steps(12);
+  -o-animation: troll-die 1s steps(12);
+  animation: troll-die 1s steps(12);
+}
+
+@-webkit-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; }  /* <-- width of spritesheet*/
+}
+
+@-moz-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@-o-keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+@keyframes troll-die {
+  from { background-position: 0px; }
+  to { background-position: -6000px; } /* <-- width of spritesheet*/
+}
+
+.troll.right.ground {
+  background: url("http://onepage.dropagence.fr/game/bm/img/anim/troll/right/troll-die.png");
+  background-size: cover;
+  background-position: -5500px;
+}

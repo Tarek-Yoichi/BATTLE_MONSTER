@@ -1,0 +1,16 @@
+<%# connect
+#creation d'une nouvelle route et action
+qui liste tout les users
+et cette page et interogger tout les secondes
+methode fecth vers users.lived %>
+
+<div data-controller="insert-in-list">
+  <div data-insert-in-list-target="items">
+    <%= render "users", users: @users, pending_deck: @pending_deck %>
+  </div>
+</div>
+
+<%#
+# creation controlleur
+# interogger tout les second en consol log
+# remplacer le log par le fetch vers la meme url %>

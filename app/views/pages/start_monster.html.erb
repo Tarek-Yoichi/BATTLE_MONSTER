@@ -1,8 +1,65 @@
-<h1>Pages#start_monster</h1>
-<p>liste variable</p>
+<main class="interface">
+  <div id="main-header">
+    <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
+    <div id="main-player">
+      <h2>Ilyes</h2>
+      <div class="main-player-menu">
+        <img src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+        <div class="circle-btn"></div>
+        <div class="circle-btn"></div>
+      </div>
+    </div>
+  </div>
+  <%= simple_form_for @monster do |f| %>
+  <div id="main-container" class="monster-block">
+    <% species = Specie.all %>
+    <div id="main-container-items">
+      <div id="main-content" class="main-content-start-monster">
+        <h2>Choisis ton premier monstre</h2>
+        <div class="form-inputs d-flex justify-content-between align-items-center">
+          <p>Cliquer sur un monstre <br>pour en savoir plus<br> sur son espèce: </p>
+          <% species.each do |specie| %>
+            <div class="d-flex align-items-center flex-column">
+              <img classe="monster-head" src="<%= specie.monster_head %>" alt="" width="90px" height="90px">
+              <p><%= specie.name %></p>
+            </div>
+          <% end %>
+        </div><br>
 
-<%= simple_form_for @monster do |f| %>
-  <%= f.input :specie_id, as: :radio_buttons, collection: Specie.all, label: "choisis l'espece de ton monstre", include_blank: :empty %>
-  <%= f.input :name,  label: "donne un nom a ton monstre" %>
-  <%= f.button :submit %>
-<% end %>
+
+
+
+            <div class="monster-row">
+              <div class="monster-row-content">
+                <h3 class="h-red">Choisis une espèce</h3>
+              </div>
+              <div class="monster-row-right large-btn large-input large-btn-chevron">
+                <%= f.association  :specie, collection: Specie.all, include_blank: :empty, label: false %>
+              </div>
+            </div>
+
+            <%# <%= f.association  :specie, collection: species, include_blank: :empty %>
+             <%# label: "choisis l'espece de ton monstre", include_blank: :empty %>
+            <div class="monster-row">
+              <div class="monster-row-content">
+               <h3 class="h-red">Choisissez un nom</h3>
+              </div>
+              <div class="monster-row-right large-btn large-input">
+               <%= f.input :name, label: false %>
+              </div>
+            </div>
+
+              </div>
+        <div id="main-controls">
+          <div class="circle-btn"><%= link_to "Retour",  page_start_intro_path %></div>
+            <div class="large-btn">
+              <div id="inputname">
+                <%= f.submit %>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</main>

@@ -1,9 +1,10 @@
-<div id="bodycombat">
-  <div class="container">
-    <div class="gap"></div>
+<div id="body-combats">
+  <div id="container-combats" class="container">
     <div class="battle"
       data-controller="battle-subscription"
       data-battle-subscription-deck-id-value="<%= @my_deck.id %>"
+      data-battle-subscription-deck1-id-value="<%= @deck1.id %>"
+      data-battle-subscription-deck2-id-value="<%= @deck2.id %>"
     >
       <h1>Combat #<%= @battle.id %></h1>
       <div class="gap"></div>
@@ -28,111 +29,23 @@
 
         <div class="arena-deck current-deck-<%= @current_deck.user_id %>">
           <div class="arena-deck-1">
-            <div id="arena-deck-1-monster" class="<%= @deck1.monster.specie.name %> idle"></div>
+            <div id="arena-deck-1-monster" class="<%= @deck1.monster.specie.name %> left idle"></div>
           </div>
 
           <div class="arena-deck-2">
-            <div id="arena-deck-2-monster" class="<%= @deck2.monster.specie.name %> idle"></div>
+            <div id="arena-deck-2-monster" class="<%= @deck2.monster.specie.name %> right idle"></div>
           </div>
         </div>
 
-        <div id="arena-attack-1"><h3 ><%= @deck1.attack.name %></div>
-        <div id="arena-attack-2"><h3 ><%= @deck2.attack.name %></div>
+        <div id="arena-attack-1"></div>
+        <div id="arena-attack-2"></div>
 
       </div>
 
       <div class="rounds" data-battle-subscription-target="rounds">
-        <div class="round" data-battle-subscription-target="round">
-
-          <div id="round-controls">
-
-            <% if @deck1.hp <= 0 %>
-
-              <div class="go-control">
-
-                <% if @deck2.user == current_user %>
-
-                  <div class="victory">
-                    <h2>Félicitations !</h2>
-                    <p>Vous avez gagné contre <%= @deck1.user.name %>, <br>quelle performance !!</p>
-                    <%= simple_form_for(@battle) do |f| %>
-                      <%= f.input :winner_id, :as => :hidden, :input_html => { :value => @deck2.user_id, :class => 'form-control' } %>
-                      <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-                    <% end %>
-                  </div>
-
-                <% else %>
-
-                  <div class="game-over">
-                    <h2>Game Over !</h2>
-                    <p>Vous avez perdu contre <%= @deck2.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
-                    <%= simple_form_for(@battle) do |f| %>
-                      <%= f.input :winner_id, :as => :hidden, :input_html => { :value => @deck2.user_id, :class => 'form-control' } %>
-                      <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-                    <% end %>
-                  </div>
-
-                <% end %>
-
-              </div>
-
-            <% elsif @deck2.hp <= 0 %>
-
-              <div class="go-control">
-
-                <% if @deck1.user == current_user %>
-
-                  <div class="victory">
-                    <h2>Félicitations !</h2>
-                    <p>Vous avez gagné contre <%= @deck2.user.name %>, <br>quelle performance !!</p>
-                    <%= simple_form_for(@battle) do |f| %>
-                      <%= f.input :winner_id, :as => :hidden, :input_html => { :value => @deck1.user_id, :class => 'form-control' } %>
-                      <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-                    <% end %>
-                  </div>
-
-                <% else %>
-
-                  <div class="game-over">
-                    <h2>Game Over !</h2>
-                    <p>Vous avez perdu contre <%= @deck1.user.name %> ... <br>vous ferez mieux la prochaine fois !</p>
-                    <%= simple_form_for(@battle) do |f| %>
-                      <%= f.input :winner_id, :as => :hidden, :input_html => { :value => @deck1.user_id, :class => 'form-control' } %>
-                      <%= f.submit 'Retour au menu', :class => 'btn btn-combats' %>
-                    <% end %>
-                  </div>
-
-                <% end %>
-
-              </div>
-
-            <% else %>
-
-              <div class="nx-control">
-                <% if @current_deck.user == current_user %>
-                  <div class="current">
-                    <h2>Round <%= @battle.round %></h2>
-                    <h3><%= @current_deck.user.name %> à toi de jouer</h3>
-                    <p><a class="btn btn-combats" data-action="click->battle-subscription#next" href="<%= battle_next_round_path(@battle, @next_deck) %>">Lancer <%= @current_deck.attack.name %></a></p>
-                  </div>
-                <% else %>
-                  <div class="next">
-                    <h2>Round <%= @battle.round %></h2>
-                    <h3>Votre adversaire est en train de jouer</h3>
-                    <p><a class="btn btn-combats">Aucune action disponible</a></p>
-                  </div>
-                <% end %>
-              </div>
-
-            <% end %>
-
-          </div>
-
-        </div>
+          <%= render :partial => 'round', :locals => { battle: @battle, deck1: @deck1, deck2: @deck2, current_deck: @current_deck, next_deck: @next_deck } %>
       </div>
 
     </div>
-    <div class="gap"></div>
-    <div class="gap"></div>
   </div>
 </div>

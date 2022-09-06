@@ -7,8 +7,12 @@ class MonstersController < ApplicationController
     @monster = Monster.new(monster_params)
     @monster.user = current_user
     @monster.xp = 0
-    @monster.save!
-    redirect_to page_start_tutoriel_path
+    if @monster.save!
+      current_user.onboard = true
+      redirect_to page_start_tutoriel_path
+    else
+      render :start_monster, status: :unprocessable_entity
+    end
   end
 
   private

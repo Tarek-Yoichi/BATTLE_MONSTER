@@ -1,19 +1,22 @@
-<div class="main-container" style="background-image: url('http://onepage.dropagence.fr/game/bg-main.png');">
-  <div class="main-content">
-    <div class="btn-menu">
-      <p class="menu-name">
-        <%= link_to "1 VERSUS 1", match_path  %>
-      </p>
-    </div>
-    <div class="btn-menu">
-      <p class="menu-name">
-        <%= link_to "1 VERSUS BOT", "#" %>
-      </p>
-    </div>
-    <div class="btn-menu">
-      <p class="menu-name">
-        <%= link_to "RETOUR", page_main_path %>
-      </p>
+<main class="interface">
+  <div id="main-header">
+    <img id="main-logo" src="https://onepage.dropagence.fr/game/bm/img/logo-bm.png">
+    <div id="main-player">
+      <h2>Ilyes</h2>
+      <div class="main-player-menu">
+        <img src="https://onepage.dropagence.fr/game/bm/img/static/ilyes.jpg">
+        <div class="circle-btn"></div>
+        <div class="circle-btn"></div>
+      </div>
     </div>
   </div>
-</div>
+  <div id="main-container" class="monster-menu">
+
+    <div id="main-container-items">
+      <div class="big-btn"><h2>1 versus 1</h2></div>
+      <div class="big-btn"><h2>1 versus IA</h2></div>
+      <div class="big-btn"><h2><%= link_to "Retour", page_main_path %></h2></div>
+    </div>
+
+  </div>
+</main>
