@@ -24,7 +24,7 @@
         <p>victoire contre <%= User.find(Battle.last.winner_id).name %></p>
         <p><%= @user.monsters.first.name %></p>
         <p><%= @user.monsters.first.specie.name %></p>
-        <p><%= @user.monsters.px %></p>
+        <p><%= @user.monsters.first.xp %></p>
       </div>
 
       <div id="main-controls">
