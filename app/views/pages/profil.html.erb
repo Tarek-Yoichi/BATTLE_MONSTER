@@ -16,19 +16,26 @@
 
       <div id="main-content" class="profil">
         <div class="main-separation">
-          <div class="gauche"><h2><%= @user.name %></h2>
-            <div class="user-pc">
-            <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/pog.png"><p><%= @user.pc %> Pc</p>
-            </div>
-              <div class="user-match">
-              <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/battle.png" alt=""> <p><%= Deck.where(user_id: @user).count %> Match</p>
+          <div class="gauche">
+          <h2><%= @user.name %></h2>
+            <div class="user-info-icon">
+              <div class="user-info">
+                  <p><%= @user.pc %> Pc</p>
+                  <p><%= Deck.where(user_id: @user).count %> Matchs</p>
+                  <p><%= Battle.where(winner_id: @user).count %> Victoires</p>
               </div>
-                <div class="user-victoire">
-                <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/medal.png" alt=""> <p><%= Battle.where(winner_id: @user).count %> Victoire</p>
+                <div class="icon-info">
+                <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/pog.png" width=50px alt="">
+                <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/battle.png" width=40px alt="">
+                <img src="https://onepage.dropagence.fr/game/bm/img/static/kit/medal.png" width=40px alt="">
                 </div>
-              <p><%= @user.monsters.first.name %></p>
-              <p><%= @user.monsters.first.specie.name %></p>
-              <p><%= @user.monsters.first.xp %></p>
+            </div>
+              <div class="monstre-profil">
+              <p><%=  %></p>
+                <h3><%= @user.monsters.first.name %></h3>
+                <p><%= @user.monsters.first.specie.name %></p>
+                <p><%= @user.monsters.first.xp %></p>
+              </div>
           </div>
             <div id="droite">
               <div class="derniere-victoire">

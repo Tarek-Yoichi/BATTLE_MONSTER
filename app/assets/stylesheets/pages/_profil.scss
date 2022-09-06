@@ -1,3 +1,8 @@
+.avatar-profil img{
+  width: 60px;
+  border-radius: 50%;
+}
+
 #droite{
   border-radius: 50px;
   background-color: #FFBD59;
@@ -30,32 +35,11 @@
   justify-content: space-between;
 }
 
-.user-pc{
+.user-info-icon{
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  flex-direction: row-reverse;
 }
 
-.user-match{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-
-.user-victoire{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-
-.user-pc img{
-  width: 30px;
-}
-
-.user-match img{
-  width: 30px;
-}
-
-.user-victoire img{
-  width: 30px;
+.icon-info{
+  display: grid;
 }
